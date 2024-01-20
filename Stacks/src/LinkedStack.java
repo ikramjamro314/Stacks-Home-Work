@@ -90,6 +90,7 @@ public class LinkedStack implements Stack{
             if(obj.head.data==data){
                 return true;
             }
+            obj.head=obj.head.next;
         }
         return false;
     }
