@@ -61,25 +61,29 @@ public class LinkedStack implements Stack{
     }
 
     //3. Remove the bottom element of the LinkedStack.
-    public void removeBottom(LinkedStack obj){
-        if(obj.head==null){
-            try {
-                throw new Exception("Stack is Empty");
-            } catch (Exception e) {
-                throw new RuntimeException(e);
-            }
+  public void removeBottom(LinkedStack obj){
+    if(obj.head == null){
+        try {
+            throw new Exception("Stack is Empty");
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
-        if(obj.head.next==null){
-              obj.head=null;
-        }
-        Node temp=obj.head;
-        while(temp.next.next==null){
-            temp=temp.next;
-
-        }
-        temp=temp.next.next;
-    --size;
     }
+    
+    if(obj.head.next == null){
+        obj.head = null;
+        --size;
+        return;
+    }
+    Node temp = obj.head;
+      
+    while(temp.next.next != null){
+        temp = temp.next;
+    }
+    temp.next = null;
+    --size;
+}
+
 
     //4. Search any element in the LinkedStack.
     public boolean search( LinkedStack obj , Object data){
