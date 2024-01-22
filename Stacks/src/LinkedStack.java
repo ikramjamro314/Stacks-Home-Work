@@ -35,9 +35,10 @@ public class LinkedStack implements Stack{
     }
 //    1. Print the elements of the linked stack
     public void print(LinkedStack obj){
-        while(obj.head!=null){
-            System.out.println(" |"+obj.head.data +" |");
-            obj.head=obj.head.next;
+        Node temp=obj.head;
+        while(temp!=null){
+            System.out.println(" |"+temp.data +" |");
+            temp=temp.next;
         }
         System.out.println("------");
     }
@@ -91,7 +92,7 @@ public class LinkedStack implements Stack{
             return false;
         }
         while(obj.head!=null){
-            if(obj.head.data==data){
+            if(obj.head.data.equals(data)){
                 return true;
             }
             obj.head=obj.head.next;
